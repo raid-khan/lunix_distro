@@ -1,45 +1,43 @@
 public class MyDetails
  {
-     private String firstname;
-     private String lastname;
+     private String attribute;
+     private String relationship;
 
      // getters
-     public String getFirstname()
+     public String getattributee()
      {
-         return firstname;
+         return attribute;
      }
 
-     public String getLastname()
+     public String getRelationship()
      {
-         return lastname;
+         return relationship;
      }
 
      // setters
-     public void setFirstname(String firstname)
+     public void setAttribute(String attribute)
      {
-         this.firstname = firstname;
+         this.attribute = attribute;
      }
 
-     public void setLastname(String lastname)
+     public void setRelationship(String relationship)
      {
-         this.lastname = lastname;
+         this.relationship = relationship;
      }
  }
  
- 
- 
- public class MyClass
+  public class Asset
 {
     public static void main(String args[])
     {
         // instantiate the class
-        MyDetails myDetails = new MyDetails();
+        Class newClass = new Class();
 
         // set the details
-        myDetails.setFirstname("John");
-        myDetails.setLastname("Smith");
+        newClass.setAttribute("John");
+        newClass.setRelationship("Smith");
 
         // print out the details
-        System.out.println("Firstname: " + myDetails.getFirstname + "\n" + "Lastname: " + myDetails.getLastname);
+        System.out.println("Attribute: " + myDetails.getAttribute + "\n" + "Relationship: " + Class.getRelationship);
     }
 }
