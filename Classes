@@ -1,0 +1,45 @@
+public class MyDetails
+ {
+     private String firstname;
+     private String lastname;
+
+     // getters
+     public String getFirstname()
+     {
+         return firstname;
+     }
+
+     public String getLastname()
+     {
+         return lastname;
+     }
+
+     // setters
+     public void setFirstname(String firstname)
+     {
+         this.firstname = firstname;
+     }
+
+     public void setLastname(String lastname)
+     {
+         this.lastname = lastname;
+     }
+ }
+ 
+ 
+ 
+ public class MyClass
+{
+    public static void main(String args[])
+    {
+        // instantiate the class
+        MyDetails myDetails = new MyDetails();
+
+        // set the details
+        myDetails.setFirstname("John");
+        myDetails.setLastname("Smith");
+
+        // print out the details
+        System.out.println("Firstname: " + myDetails.getFirstname + "\n" + "Lastname: " + myDetails.getLastname);
+    }
+}
