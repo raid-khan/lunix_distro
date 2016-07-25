@@ -23,4 +23,6 @@ The aim of this project is to develop a model of a linux distribution and analys
 The base model is taken from Fedora Workstation Live as of June 2016. This is version 23. 
 
 
-
+##Useful Links
+[Fedora distro](https://getfedora.org/)
+[Academic Reference To PWNPR3D](http://www.nada.kth.se/~ann/exjobb/erik_ringdahl.pdf)
