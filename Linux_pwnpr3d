@@ -1,3 +1,5 @@
+HardwareComputer computer = new HardwareComputer()
+OperatingSystem os = computer.newOperatingSystem()
 Host = newHost.ip()
 	/ = new Directory()
 	Host.connect(/)
