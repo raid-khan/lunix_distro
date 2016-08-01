@@ -29,6 +29,14 @@ OperatingSystem os = computer.newOperatingSystem()
 		os.connect (UserAccounts)
 		Application.connect(UserAccounts)
 	Data Database = newData()
+		Data Folders = NewData()
+		Data Backup = newData
+		Data Contacts = newData
+		Data Archive = newArchive
+			Folders.connect (Database)
+			Backup.connect (Database)
+			Contacts.connect (Database)
+			Archive.connect (Database)
 		UserAccounts.connect(Database)
 		Application.connect(Database)
 	Agent Firewall = newAgent()
@@ -37,12 +45,16 @@ OperatingSystem os = computer.newOperatingSystem()
 		Firewall.connects(Router)
 	Agent Ethernet = newAgent()
 		Firewall.connect (Ethernet)
-	Data ARPTable = newData()
-		Firewall.connect (ARPTable)
-	NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
+	NetworkInterfaceImplementation NetworkProtocols = newNetworkInterfaceImplementation
+		NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
 		NetworkInterfaceImplementation TelnetProtocol = newNetworkInterfaceImplementation
-			TelnetProtocol.connect(TcpIpProtocol)
-		TcpIpProtocol.connect(Firewall)
-		TcpIpProtocol.connect(ARPTable)
-		TcpIpProtocol.connect (SSHClient)
+		NetworkInterfaceImplementation ARPImplementation = newNetworkInterfaceImplementation		
+			TelnetProtocol.connect(NetworkProtocols)
+			TcpIpProtocol.connect(NetworkProtocols)
+			ARPImplementation.connect(NetworkProtocols)
+					Data ARPTable = newData()
+					ARPImplementation.connect(ARPTable)
+					Firewall.connect (ARPTable)
+	NetworkProtocols.connect(Firewall)
+	NetworkProtocols.connect (SSHClient)
 	
