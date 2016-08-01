@@ -39,8 +39,10 @@ OperatingSystem os = computer.newOperatingSystem()
 		Firewall.connect (Ethernet)
 	Data ARPTable = newData()
 		Firewall.connect (ARPTable)
-	NetworkProtocolImplementation IpProtocol = newNetworkProtocolImplementation
-		IpProtocol.connect(Firewall)
-		IpProtocol.connect(ARPTable)
-		IpProtocol.connect (SSHClient)
+	NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
+		NetworkInterfaceImplementation TelnetProtocol = newNetworkInterfaceImplementation
+			TelnetProtocol.connect(TcpIpProtocol)
+		TcpIpProtocol.connect(Firewall)
+		TcpIpProtocol.connect(ARPTable)
+		TcpIpProtocol.connect (SSHClient)
 	
