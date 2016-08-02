@@ -20,25 +20,25 @@ import se.kth.ics.pwnpr3d.util.Sampler;
 import java.util.HashSet;
 import java.util.Set;
 
-HardwareComputer computer = new HardwareComputer()
-OperatingSystem os = computer.newOperatingSystem()
-	computer.connect(os)
-	Agent computer = newAgent()
+HardwareComputer computer = newHardwareComputer;
+OperatingSystem Linux = newOperatingSystem;
+	computer.connect(Linux)
+	Agent computer = newAgent;
 	Agent SSHClient = newAgent)
 		os.connect(SSHClient)
-	Application application = newApplication()
+	Application application = newApplication;
 		os.connect (Application)
-	identity UserAccounts = newidentity()
-			UserAccounts Home = NewUserAccount
-			UserAccounts Guest = NewUserAccount
+	identity UserAccounts = newidentity;
+			UserAccounts Home = NewUserAccount;
+			UserAccounts Guest = NewUserAccount;
 				UserAccounts.connect(Home)
 				UserAccounts.connect (Guest)
 		os.connect (UserAccounts)
 		Application.connect(UserAccounts)
-	Data Database = newData()
-		Data Folders = NewData()
-		Data Backup = newData
-		Data Contacts = newData
+	Data Database = newData;
+		Data Folders = NewData;
+		Data Backup = newData;
+		Data Contacts = newData;
 		Data Archive = newArchive
 			Folders.connect (Database)
 			Backup.connect (Database)
@@ -46,11 +46,11 @@ OperatingSystem os = computer.newOperatingSystem()
 			Archive.connect (Database)
 		UserAccounts.connect(Database)
 		Application.connect(Database)
-	Agent Firewall = newAgent()
+	Agent Firewall = newAgent;
 		UserAccounts.connect (Firewall)
-	Agent Router = newAgent()
+	Agent Router = newAgent;
 		Firewall.connects(Router)
-	Agent Ethernet = newAgent()
+	Agent Ethernet = newAgent;
 		Firewall.connect (Ethernet)
 	NetworkInterfaceImplementation NetworkProtocols = newNetworkInterfaceImplementation
 		NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
@@ -59,10 +59,8 @@ OperatingSystem os = computer.newOperatingSystem()
 			TelnetProtocol.connect(TcpIpProtocol)
 			TcpIpProtocol.connect(NetworkProtocols)
 			ARPImplementation.connect(NetworkProtocols)
-					Data ARPTable = newData()
+					Data ARPTable = newData;
 					ARPImplementation.connect(ARPTable)
 					Firewall.connect (ARPTable)
 	NetworkProtocols.connect(Firewall)
 	NetworkProtocols.connect (SSHClient)
-	
-	
