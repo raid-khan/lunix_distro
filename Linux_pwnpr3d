@@ -27,13 +27,9 @@ OperatingSystem Linux = newOperatingSystem;
 	Agent SSHClient = newAgent)
 		os.connect(SSHClient)
 	Application application = newApplication;
-		os.connect (Application)
+		Linux.connect (Application)
 	identity UserAccounts = newidentity;
-			UserAccounts Home = NewUserAccount;
-			UserAccounts Guest = NewUserAccount;
-				UserAccounts.connect(Home)
-				UserAccounts.connect (Guest)
-		os.connect (UserAccounts)
+		Linux.connect (UserAccounts)
 		Application.connect(UserAccounts)
 	Data Database = newData;
 		Data Folders = NewData;
@@ -53,14 +49,16 @@ OperatingSystem Linux = newOperatingSystem;
 	Agent Ethernet = newAgent;
 		Firewall.connect (Ethernet)
 	NetworkInterfaceImplementation NetworkProtocols = newNetworkInterfaceImplementation
-		NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
 		NetworkInterfaceImplementation TelnetProtocol = newNetworkInterfaceImplementation
+			NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
 		NetworkInterfaceImplementation ARPImplementation = newNetworkInterfaceImplementation		
-			TelnetProtocol.connect(TcpIpProtocol)
-			TcpIpProtocol.connect(NetworkProtocols)
+				TelnetProtocol.connect(NetwoProtocol)
+				TcpIpProtocol.connect(TelnetProtocol)
 			ARPImplementation.connect(NetworkProtocols)
 					Data ARPTable = newData;
 					ARPImplementation.connect(ARPTable)
 					Firewall.connect (ARPTable)
 	NetworkProtocols.connect(Firewall)
 	NetworkProtocols.connect (SSHClient)
+	
+	
