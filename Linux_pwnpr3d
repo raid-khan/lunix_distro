@@ -11,6 +11,9 @@ import se.kth.ics.pwnpr3d.layer1.Application;
 import se.kth.ics.pwnpr3d.layer2.network.*;
 import se.kth.ics.pwnpr3d.layer1.Vulnerability;
 import se.kth.ics.pwnpr3d.layer2.computer.Computer;
+import se.kth.ics.pwnpr3d.layer2.CVE.CVE;
+import se.kth.ics.pwnpr3d.layer2.CVE.CVEFactory;
+import se.kth.ics.pwnpr3d.layer2.CVE.CVEInfo;
 import se.kth.ics.pwnpr3d.layer2.software.*;
 import se.kth.ics.pwnpr3d.util.Sampler;
 
@@ -25,7 +28,11 @@ OperatingSystem os = computer.newOperatingSystem()
 		os.connect(SSHClient)
 	Application application = newApplication()
 		os.connect (Application)
-	identity UserAccounts = new identity()
+	identity UserAccounts = newidentity()
+			UserAccounts Home = NewUserAccount
+			UserAccounts Guest = NewUserAccount
+				UserAccounts.connect(Home)
+				UserAccounts.connect (Guest)
 		os.connect (UserAccounts)
 		Application.connect(UserAccounts)
 	Data Database = newData()
@@ -49,7 +56,7 @@ OperatingSystem os = computer.newOperatingSystem()
 		NetworkProtocolImplementation TcpIpProtocol = newNetworkProtocolImplementation
 		NetworkInterfaceImplementation TelnetProtocol = newNetworkInterfaceImplementation
 		NetworkInterfaceImplementation ARPImplementation = newNetworkInterfaceImplementation		
-			TelnetProtocol.connect(NetworkProtocols)
+			TelnetProtocol.connect(TcpIpProtocol)
 			TcpIpProtocol.connect(NetworkProtocols)
 			ARPImplementation.connect(NetworkProtocols)
 					Data ARPTable = newData()
@@ -57,4 +64,5 @@ OperatingSystem os = computer.newOperatingSystem()
 					Firewall.connect (ARPTable)
 	NetworkProtocols.connect(Firewall)
 	NetworkProtocols.connect (SSHClient)
+	
 	
