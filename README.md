@@ -12,12 +12,8 @@ The aim of this project is to develop a model of a linux distribution and analys
 7. Man in the browser
 8. Remote Access Trojan
 9. Ransomware
-10. Exploitation of known weaknesses in programs
-11. Eavesdropping
-12. Service Vulnerabilities
-13. Application Vulnerabilities
-14. Denial of servides
-15. Repudiation
+10. Denial of servides
+
 
 ##The Linux Model
 The base model is taken from Fedora Workstation Live as of June 2016. This is version 23. 
